@@ -1,0 +1,38 @@
+.comment{
+    margin-left:15px;
+    margin-bottom: 10px;
+}
+textarea{
+    resize:none;
+}
+
+.btn{
+    padding-bottom:2px;
+    padding-top: 2px;
+}
+.media{
+    border-bottom:1px solid #e5e5e5;
+}
+.status-person-on,.status-person-off{
+    padding:5px;
+    margin-top:5px;
+    margin-right:10px;
+}
+.status-person-on{
+    background: #00E70C;
+}
+.status-person-off{
+    background: #FF151C;
+}
+.highlight{
+    background: cornflowerblue;
+}
+
+.editable{
+    height:150px;
+    overflow: auto;
+}
+
+.hashtag-helper{
+    cursor: pointer;
+}
