@@ -1,5 +1,7 @@
 @extends('templates.default')
-
+@section('title')
+    Conversations
+@endsection
 @section('content')
     <link rel="stylesheet" href="{{URL::to('src/css/messages.css')}}" crossorigin="anonymous">
     <div class="row">

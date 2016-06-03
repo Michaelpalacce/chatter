@@ -1,8 +1,10 @@
 @extends('templates.default')
-
+@section('title')
+    {{$username}}
+@endsection
 @section('content')
     <link rel="stylesheet" href="{{URL::to('src/css/messages.css')}}" crossorigin="anonymous">
-    <div class="col-lg-4 col-lg-offset-4">
+    <div class="col-lg-6 col-lg-offset-3">
         <h1 class="greetings">Hello, <span id="username">{{$username}}</span></h1>
         <div id="chat-window" class="col-lg-12">
 

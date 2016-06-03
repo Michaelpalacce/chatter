@@ -1,5 +1,7 @@
 @extends('templates.default')
-
+@section('title')
+    Sign In
+@endsection
 @section('content')
     <h3>Sign In</h3>
 <div class="row">

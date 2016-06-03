@@ -1,5 +1,7 @@
 @extends('templates.default')
-
+@section('title')
+    Search
+@endsection
 @section('content')
     <h3>Your search for: "{{Request::input('query')}}"</h3>
 

@@ -21,7 +21,7 @@
     text-align: center;
 }
 #chat-window{
-    height:350px;
+    height:300px;
     overflow-y: auto;
 }
 

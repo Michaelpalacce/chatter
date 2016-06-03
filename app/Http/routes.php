@@ -239,3 +239,10 @@ Route::get('/image/delete/{id}',[
     'as'=>'image.delete',
     'middleware'=>['auth']
 ]);
+
+Route::get('/image/slideshow/{galleryId}/{picId}',[
+    'uses'=>'ImageController@getSlideshow',
+    'as'=>'image.slideshow',
+    'middleware'=>['auth'],
+
+]);

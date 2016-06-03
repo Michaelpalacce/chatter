@@ -1,5 +1,7 @@
 @extends('templates.default')
-
+@section('title')
+    Sign Up
+@endsection
 @section('content')
     <h3>Sign Up</h3>
     <div class="row">

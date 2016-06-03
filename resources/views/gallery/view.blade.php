@@ -41,13 +41,17 @@
        <div class="col-md-12">
            <div id="gallery-images">
                <ul>
+                   <?php $counter=0; ?>
                    @foreach($images as $image)
                        <li>
                            <a href="{{route('image.delete',['id'=>$image->id])}}" class="btn btn-danger delBut" value="{{$image->id}}">Delete</a>
-                           <div class="imgWrap">
-                               <img src="{{url($image->file_path)}}" alt="">
-                           </div>
+                           <a href="{{route('image.slideshow',['galleryId'=>$gallery->id,'picId'=>$counter])}}">
+                               <div class="imgWrap">
+                                   <img src="{{url($image->file_path)}}" alt="">
+                               </div>
+                           </a>
                        </li>
+                       <?php $counter++; ?>
                    @endforeach
                </ul>
            </div>

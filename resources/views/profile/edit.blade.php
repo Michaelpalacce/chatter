@@ -1,5 +1,7 @@
 @extends('templates.default')
-
+@section('title')
+    Edit
+@endsection
 @section('content')
     <h3>Update Your Profile</h3>
     <div class="row">
