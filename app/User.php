@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     protected $table='users';
+
     protected $fillable = [
         'username', 'email', 'password','first_name','last_name','location'
     ];
@@ -119,5 +120,9 @@ class User extends Authenticatable
 
     public function scopeLike($query, $field, $value){
         return $query->where($field, 'LIKE', "%$value%");
+    }
+
+    public function ToDo(){
+        $this->hasMany('Chatter\ToDo');
     }
 }

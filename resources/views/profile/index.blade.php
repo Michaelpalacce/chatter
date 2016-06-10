@@ -7,7 +7,6 @@
     <div class="col-lg-5">
         @include('user.partials.userblock')
         <hr>
-
             @if(!$statuses->count())
                 <p>It`s a bit empty in here!</p>
             @else

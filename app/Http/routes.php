@@ -246,3 +246,25 @@ Route::get('/image/slideshow/{galleryId}/{picId}',[
     'middleware'=>['auth'],
 
 ]);
+
+
+/*
+ * ToDo
+ */
+
+Route::get('/ToDo',[
+    'uses'=>'ToDoController@getToDos',
+    'as'=>'todo.index',
+    'middleware'=>['auth']
+]);
+
+Route::post('/ToDo',[
+    'uses'=>'ToDoController@postNewToDo',
+    'middleware'=>['auth']
+]);
+
+Route::post("/ToDo/complete",[
+    'uses'=>'ToDoController@postComplete',
+    'as'=>'todo.complete',
+    'middleware'=>['auth']
+]);

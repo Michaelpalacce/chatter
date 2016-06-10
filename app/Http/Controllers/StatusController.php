@@ -4,6 +4,7 @@ namespace Chatter\Http\Controllers;
 
 use Chatter\Like;
 use Chatter\Status;
+use Chatter\StatusImage;
 use Chatter\User;
 use Illuminate\Http\Request;
 use Chatter\Http\Requests;
@@ -29,7 +30,7 @@ class StatusController extends Controller
             //cut to the first space
             $hashtag=substr($hashtag,$firstSpace);
         }
-        //search from database
+
         $user=User::where('username',$hashtag)->get()->first();
         if($user){
             $href='localhost:8000/user/'.$user->username;
@@ -37,15 +38,21 @@ class StatusController extends Controller
             $body=str_replace($final,$subject,$body);
         }
 
-//        $file=$request->file('file');
-//        $filename=uniqid().$file->getClientOriginalName();
+//        $file=$request->input('file');
+//
+//        $filename=uniqid().$file;
 //        $file->move(public_path().'/gallery/images',$filename);
 
-        Auth::user()->statuses()->create([
+        $status=Auth::user()->statuses()->create([
             'body'=>$body,
-//            'file_path'=>'/gallery/images/'.$filename,
-//            'file_mime'=>$file->getClientMimeType(),
         ]);
+
+//       $im= StatusImage::create([
+//            'status_id'=>$status->id,
+////            'file_path'=>'/gallery/images/'.$filename,
+////            'user_id'=>Auth::user()->id
+//        ]);
+//        dd($im);
         return redirect()->route('home')->with('info','Status Posted!');
     }
 

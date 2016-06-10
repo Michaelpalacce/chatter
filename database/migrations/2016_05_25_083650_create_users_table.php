@@ -25,7 +25,6 @@ class CreateUsersTable extends Migration
             $table->boolean('logged')->nullable()->default(false);
         });
     }
-
     /**
      * Reverse the migrations.
      *

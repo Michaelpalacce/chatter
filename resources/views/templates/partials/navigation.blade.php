@@ -11,6 +11,7 @@
                 <li><a href="{{route('friend.index')}}">Friends</a></li>
                 <li><a href="{{route('messenger')}}">Messenger</a></li>
                 <li><a href="{{route('gallery.list')}}">Gallery</a></li>
+                <li><a href="{{route('todo.index')}}">ToDo</a></li>
 
             </ul>
 
@@ -19,7 +20,6 @@
                     <input type="text" name="query" class="form-control"
                            placeholder="Find people"/>
                 </div>
-                <button type="submit" class="btn btn-default" id="Search-button">Search</button>
             </form>
             @endif
             <ul class="nav navbar-nav navbar-right">

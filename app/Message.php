@@ -9,6 +9,6 @@ class Message extends Model
     protected $table='messages';
 
     public function chat(){
-        $this->belongsTo('Chatter\Chat','chat_id');
+        return $this->belongsTo('Chatter\Chat','chat_id');
     }
 }

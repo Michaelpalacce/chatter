@@ -27,4 +27,7 @@ class Status extends Model
     public function likes(){
         return $this->morphMany('Chatter\Like','likeable');
     }
+    public function image(){
+        return $this->hasOne('Chatter\StatusImage');
+    }
 }

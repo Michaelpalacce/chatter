@@ -3,6 +3,7 @@
     Timeline
 @endsection
 @section('content')
+
     <div class="row">
         <div class="col-lg-6">
             <form role="form" action="{{route('status.post')}}" method="post">
@@ -12,6 +13,13 @@
                 @if($errors->has('status'))
                     <span class="help-block">{{$errors->first('status')}}</span>
                 @endif
+                <img src="" alt="" style="display: none; width: 200px; height: 200px; margin-bottom: 10px;" id="img">
+                <div class="wrapp" style=" margin-bottom: 10px;">
+                    <label class="btn btn-default btn-file">
+                        Image <input type="file" style="display: none;" id="upload" name="file">
+                    </label>
+                </div>
+
                 <button type="submit" class="btn btn-default">Update status</button>
                 <input type="hidden" name="_token" value="{{Session::token()}}">
             </form>
@@ -76,9 +84,33 @@
             @endif
         </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
 
+    <object width="425" height="350" data="http://www.youtube.com/v/Ahg6qcgoay4" type="application/x-shockwave-flash"><param name="src" value="http://www.youtube.com/v/Ahg6qcgoay4" /></object>
+
+@endsection
+@section('scripts')
     <script>
         var hashtagUrl="{{route('hashtag.search')}}";
         var token="{{Session::token()}}";
+        var btnToCLick=document.getElementById('upload');
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                $('#img').show();
+                reader.onload = function (e) {
+                    $('#img').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#upload").change(function(){
+            readURL(this);
+        });
     </script>
 @endsection

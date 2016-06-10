@@ -12,7 +12,10 @@
         @endforeach
     </div>
     <div class="slider-nav">
+        <div class="navigation-Buttons">
         <button class="arrow-prev"><img src="{{\Illuminate\Support\Facades\URL::to('src/imgs/arrow-prev.png')}}"></button>
+        <button class="arrow-next"><img src="{{\Illuminate\Support\Facades\URL::to('src/imgs/arrow-next.png')}}"></button>
+        </div>
         <ul class="slider-dots">
             <?php $counter=0;?>
             @foreach($images as $image)
@@ -23,7 +26,7 @@
                 <?php $counter++;?>
             @endforeach
         </ul>
-        <button class="arrow-next"><img src="{{\Illuminate\Support\Facades\URL::to('src/imgs/arrow-next.png')}}"></button>
+
     </div>
 @endsection
 
@@ -32,10 +35,13 @@
 @endsection
 
 @section('scripts')
+
 <script>
     var picture="{{$picId}}";
     var currentImage=$('.slider').children().first();
     var currentDot=$('.slider-dots').children().first();
+    var dots=$('.slider-dots').children();
+
     $(document).ready(function(){
         if(picture>0){
             while(picture!=0){
@@ -46,9 +52,8 @@
                 picture--;
             }
         }
-        currentDot.addClass('active-dot');
         currentImage.addClass('active-slide');
-
+        currentDot.addClass('active-dot');
         $('.dot').click(function () {
             var pic=$(this).val();
             var curImage=$('.slider').children().first();
@@ -63,9 +68,9 @@
                 }
             }
             $('.active-dot').removeClass('active-dot');
-            $('.active-slide').fadeOut(600).removeClass('active-slide');
-            $(this).addClass('active-dot');
-            curImage.fadeIn(600).addClass('active-slide');
+            $('.active-slide').removeClass('active-slide');
+            curImage.addClass('active-slide');
+            curDot.addClass('active-dot');
         });
 
         $('.arrow-prev').click(function () {
@@ -80,10 +85,9 @@
                 prevDot = $('.dot').last();
             }
 
-            currentSlide.fadeOut(600).removeClass('active-slide');
-            prevSlide.fadeIn(600).addClass('active-slide');
-
+            currentSlide.removeClass('active-slide');
             currentDot.removeClass('active-dot');
+            prevSlide.addClass('active-slide');
             prevDot.addClass('active-dot');
         });
         var next=function () {
@@ -98,10 +102,10 @@
                 nextDot = $('.dot').first();
             }
 
-            currentSlide.fadeOut(600).removeClass('active-slide');
-            nextSlide.fadeIn(600).addClass('active-slide');
-
+            currentSlide.removeClass('active-slide');
             currentDot.removeClass('active-dot');
+
+            nextSlide.addClass('active-slide');
             nextDot.addClass('active-dot');
 
         };
